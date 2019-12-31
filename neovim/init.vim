@@ -22,7 +22,7 @@ Plug 'itchyny/lightline.vim'
 " autopairs
 Plug 'jiangmiao/auto-pairs'
 
-" NERDTree & NERDCommenter
+" NERDCommenter
 Plug 'scrooloose/nerdcommenter'
 
 " deoplete
@@ -31,9 +31,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " neosnippet
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
@@ -53,6 +50,14 @@ Plug 'lervag/vimtex'
 
 call plug#end()
 
+" enable deoplete upon startup
+let g:deoplete#enable_at_startup = 1
+
+" neosnippet use C-k for completion and jumping
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
 " vimtex settings
 let g:vimtex_view_method='skim'
 set conceallevel=1
@@ -70,7 +75,6 @@ let g:go_fmt_command = "goimports"
 
 " vim-notes setting
 let g:notes_suffix = '.txt'
-let g:deoplete#enable_at_startup = 1
 autocmd Filetype txt setlocal tw=80
 autocmd Filetype note setlocal tw=80
 

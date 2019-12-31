@@ -60,9 +60,6 @@ ZSH_THEME="minimal"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -78,38 +75,26 @@ source $ZSH/oh-my-zsh.sh
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# neovim alias
 alias n="nvim"
+
+# open all files in current directory in neovim vertical split
 alias na="nvim -O ./*"
-alias z="zathura"
+
+# simple Go script to simplify fractions
 alias simplify="~/go/src/github.com/RosyGraph/simplify/simplify"
+
+# Python3 alias
 alias py3="python3"
 skim() { /Applications/Skim.app/Contents/MacOS/Skim $* & disown}
 
 # Custom hashes
+
+# math1080 directory
 hash -d math=~/university/fall2019/math1080/
+
+# Go repository
 hash -d rosy=~/go/src/github.com/RosyGraph/
+
+# eBooks and other learning material
 hash -d learn=~/Documents/learning-resources/
