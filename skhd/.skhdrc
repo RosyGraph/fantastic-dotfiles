@@ -230,7 +230,7 @@ alt - o : yabai -m window --toggle topmost
 # ctrl + alt - a : yabai -m space --layout bsp
 # ctrl + alt - d : yabai -m space --layout float
 
-# Skim-specific vim bindings
+# Skim-specific vim scroll bindings
 h [
 	"Skim" : skhd -k "left"
 ]
