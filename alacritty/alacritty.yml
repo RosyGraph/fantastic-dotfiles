@@ -425,7 +425,7 @@ background_opacity: 0.7
 #  - { mouse: Middle, action: PasteSelection }
 
 # Key bindings
-#
+
 # Key bindings are specified as a list of objects. For example, this is the
 # default paste binding:
 #
@@ -523,7 +523,11 @@ background_opacity: 0.7
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
-#key_bindings:
+
+key_bindings:
+    # create a new instance with Cmd-N
+    - { key: N, mods: Command, action: SpawnNewInstance }
+
   # (Windows/Linux only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }
@@ -540,13 +544,13 @@ background_opacity: 0.7
   #- { key: Equals, mods: Command,         action: IncreaseFontSize }
   #- { key: Add,    mods: Command,         action: IncreaseFontSize }
   #- { key: Minus,  mods: Command,         action: DecreaseFontSize }
-  #- { key: K,      mods: Command,         action: ClearHistory     }
+  # - { key: K,      mods: Command,         action: ClearHistory     }
   #- { key: K,      mods: Command,         chars: "\x0c"            }
-  #- { key: V,      mods: Command,         action: Paste            }
-  #- { key: C,      mods: Command,         action: Copy             }
-  #- { key: H,      mods: Command,         action: Hide             }
-  #- { key: Q,      mods: Command,         action: Quit             }
-  #- { key: W,      mods: Command,         action: Quit             }
+  # - { key: V,      mods: Command,         action: Paste            }
+  # - { key: C,      mods: Command,         action: Copy             }
+  # - { key: H,      mods: Command,         action: Hide             }
+  # - { key: Q,      mods: Command,         action: Quit             }
+  # - { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
   #- { key: Paste,                    action: Paste                            }
