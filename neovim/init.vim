@@ -1,36 +1,39 @@
 " vim-plug plugins
 call plug#begin()
 
-" kemonofriends
-Plug 'machakann/vim-colorscheme-kemonofriends'
+"
+" colorschemes
+"
+
+"base16 colors
+Plug 'chriskempson/base16-vim'
 
 " Base2Tone schemes
 Plug 'atelierbram/Base2Tone-vim'
 
-" Zenburn color scheme
-Plug 'jnurmine/Zenburn'
-
-" vim-go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
 " yin-yang theme
 Plug 'pgdouyon/vim-yin-yang'
 
+" kemonofriends
+Plug 'machakann/vim-colorscheme-kemonofriends'
+
+"
+"status bar
+"
+
 " lightline
 Plug 'itchyny/lightline.vim'
+Plug 'mike-hearn/base16-vim-lightline'
 
-" autopairs
-Plug 'jiangmiao/auto-pairs'
-
-" NERDCommenter
-Plug 'scrooloose/nerdcommenter'
+"
+" autocomplete
+"
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " neosnippet
 Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
@@ -38,15 +41,33 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-" vim-notes
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
+" autopairs
+Plug 'jiangmiao/auto-pairs'
+
+"
+" language-specific tools
+"
+
+" vimtex
+Plug 'lervag/vimtex'
+
+" vim-go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" NERDCommenter
+Plug 'scrooloose/nerdcommenter'
+Plug 'Shougo/neosnippet-snippets'
+
+"
+" note taking
+"
 
 " Vimwiki
 Plug 'vimwiki/vimwiki'
 
-" vimtex
-Plug 'lervag/vimtex'
+" vim-notes
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 call plug#end()
 
@@ -86,13 +107,14 @@ set completeopt-=preview
 set nocompatible
 
 " Visual settings
-set termguicolors
-colorscheme Base2Tone_MotelDark
+colorscheme base16-ashes
+set background=dark
+set tgc
 set noshowmode
 let g:lightline = {
-			\ 'colorscheme': 'Base2Tone_Motel'
+			\ 'colorscheme': 'base16_ashes'
 			\ }
-set background=dark
+autocmd ColorScheme * hi! Normal ctermbg=none guibg=NONE
 syntax on
 
 " vim-go shortcuts
