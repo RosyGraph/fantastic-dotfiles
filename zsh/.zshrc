@@ -86,7 +86,7 @@ alias simplify="~/go/src/github.com/RosyGraph/simplify/simplify"
 
 # Python3 alias
 alias py3="python3"
-skim() { nohup /Applications/Skim.app/Contents/MacOS/Skim $* & }
+skim() { /Applications/Skim.app/Contents/MacOS/Skim $* &! }
 
 # Custom hashes
 
