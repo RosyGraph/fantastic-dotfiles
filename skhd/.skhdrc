@@ -67,7 +67,7 @@
 #                                   an EOL character signifies the end of the bind.
 
 # open iTerm2
-cmd - return : open -na /Applications/Alacritty.app/Contents/MacOS/alacritty
+cmd - return : open -na /Applications/kitty.app/Contents/MacOS/kitty
 
 # focus window
 alt - h : yabai -m window --focus west
