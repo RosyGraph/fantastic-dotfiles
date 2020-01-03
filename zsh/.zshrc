@@ -75,6 +75,9 @@ source $ZSH/oh-my-zsh.sh
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
 
+# eclim server shortcut
+alias ec="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
+
 # neovim alias
 alias n="nvim"
 
