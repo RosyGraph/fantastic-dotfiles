@@ -127,7 +127,9 @@ autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>gr <Plug>(go-run)
 
 " eclim settings
-autocmd FileType java nmap <Leader>jb <Plug>(ProjectBuild %)
+autocmd FileType java nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+autocmd FileType java nnoremap <silent> <buffer> nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 
 " General settings
 filetype plugin on
