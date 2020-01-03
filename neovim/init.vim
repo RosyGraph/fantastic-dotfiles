@@ -58,6 +58,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'Shougo/neosnippet-snippets'
 
+" vim-eclim
+Plug 'dansomething/vim-eclim'
+
 "
 " note taking
 "
@@ -122,6 +125,9 @@ nnoremap <leader>gt :GoTest<ENTER>
 autocmd FileType go nmap <Leader>gi <Plug>(go-info)
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>gr <Plug>(go-run)
+
+" eclim settings
+autocmd FileType java nmap <Leader>jb <Plug>(ProjectBuild %)
 
 " General settings
 filetype plugin on
