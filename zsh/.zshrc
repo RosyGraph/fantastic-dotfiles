@@ -94,7 +94,7 @@ skim() { /Applications/Skim.app/Contents/MacOS/Skim $* &! }
 # Custom hashes
 
 # math1080 directory
-hash -d math=~/university/fall2019/math1080/
+hash -d spring=~/university/spring2020/
 
 # Go repository
 hash -d rosy=~/go/src/github.com/RosyGraph/
