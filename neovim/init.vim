@@ -34,6 +34,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " neosnippet
 Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
@@ -56,7 +57,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " NERDCommenter
 Plug 'scrooloose/nerdcommenter'
-Plug 'Shougo/neosnippet-snippets'
 
 " vim-eclim
 Plug 'dansomething/vim-eclim'
@@ -107,12 +107,11 @@ autocmd Filetype vimwiki setlocal tw=80
 
 " closes preview pane
 set completeopt-=preview
-set nocompatible
 
 " Visual settings
 colorscheme base16-ashes
 set background=dark
-set tgc
+set termguicolors
 set noshowmode
 let g:lightline = {
 			\ 'colorscheme': 'base16_ashes'
@@ -139,6 +138,6 @@ set si
 set tabstop=4
 set noexpandtab
 set shiftwidth=4
-set nu
+set number
 set splitright
 set clipboard=unnamed
