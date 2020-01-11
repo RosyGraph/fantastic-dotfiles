@@ -84,6 +84,9 @@ alias n="nvim"
 # open all files in current directory in neovim vertical split
 alias na="nvim -O ./*"
 
+# open all files in current directory in neovim tabbed
+alias nt="nvim -p ./*"
+
 # simple Go script to simplify fractions
 alias simplify="~/go/src/github.com/RosyGraph/simplify/simplify"
 
@@ -94,7 +97,7 @@ skim() { /Applications/Skim.app/Contents/MacOS/Skim $* &! }
 # Custom hashes
 
 # math1080 directory
-hash -d spring=~/university/spring2020/
+hash -d u=~/university/spring2020/
 
 # Go repository
 hash -d rosy=~/go/src/github.com/RosyGraph/
