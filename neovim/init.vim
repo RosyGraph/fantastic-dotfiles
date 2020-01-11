@@ -31,6 +31,7 @@ Plug 'mike-hearn/base16-vim-lightline'
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
 
 " neosnippet
 Plug 'Shougo/neosnippet.vim'
@@ -119,16 +120,28 @@ let g:lightline = {
 autocmd ColorScheme * hi! Normal ctermbg=none guibg=NONE
 syntax on
 
+"
 " vim-go shortcuts
+"
+
 nnoremap <leader>gt :GoTest<ENTER>
 autocmd FileType go nmap <Leader>gi <Plug>(go-info)
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>gr <Plug>(go-run)
 
+"
 " eclim settings
+"
+
+" run open buffer's java file
+autocmd FileType java nnoremap <silent> <buffer> <leader>jj :Java %<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>pr :ProjectRefresh<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>pl :ProjectList<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>pb :ProjectBuild<cr>
 autocmd FileType java nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
 autocmd FileType java nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
 autocmd FileType java nnoremap <silent> <buffer> nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
+let g:EclimProjectTreeAutoOpen=1
 
 " General settings
 filetype plugin on
