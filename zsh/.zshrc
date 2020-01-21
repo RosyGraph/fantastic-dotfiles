@@ -92,12 +92,19 @@ alias simplify="~/go/src/github.com/RosyGraph/simplify/simplify"
 
 # Python3 alias
 alias py3="python3"
+alias tensorflow="source ~/envs/tensorflow/bin/activate"
 skim() { /Applications/Skim.app/Contents/MacOS/Skim $* &! }
 
 # Custom hashes
 
-# math1080 directory
+# u of u repo
 hash -d u=~/university/spring2020/
+
+# current math homework directory
+hash -d math=~/university/spring2020/math1310/hw/hw2/
+
+# current cs project directory
+hash -d cs=~/university/spring2020/cs1410/CS1410-Assignments/src/a2/
 
 # Go repository
 hash -d rosy=~/go/src/github.com/RosyGraph/
