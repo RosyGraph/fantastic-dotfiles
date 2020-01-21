@@ -34,5 +34,6 @@ yabai -m config window_gap                   10
 
 # float system preferences
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
 
 echo "yabai configuration loaded.."
