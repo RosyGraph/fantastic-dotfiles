@@ -77,6 +77,9 @@ call plug#end()
 
 " enable deoplete upon startup
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#deoplete_onmni_patterns = get(g:, 'deoplete#force_omni_input_patterns', {})
+set omnifunc=syntaxcomplete#Complete
 
 " neosnippet use C-k for completion and jumping
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -154,3 +157,4 @@ set shiftwidth=4
 set number
 set splitright
 set clipboard=unnamed
+set ignorecase smartcase
