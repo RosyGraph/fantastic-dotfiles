@@ -75,6 +75,8 @@ source $ZSH/oh-my-zsh.sh
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
 
+# Aliases
+
 # eclim server shortcut
 alias ec="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
 
@@ -93,7 +95,11 @@ alias simplify="~/go/src/github.com/RosyGraph/simplify/simplify"
 # Python3 alias
 alias py3="python3"
 alias tensorflow="source ~/envs/tensorflow/bin/activate"
+
+# open a file in skim
 skim() { /Applications/Skim.app/Contents/MacOS/Skim $* &! }
+
+alias twenty="~/go/bin/twenty &!"
 
 # Custom hashes
 
@@ -101,13 +107,15 @@ skim() { /Applications/Skim.app/Contents/MacOS/Skim $* &! }
 hash -d u=~/university/spring2020/
 
 # current math homework directory
-hash -d math=~/university/spring2020/math1310/hw/hw2/
+hash -d math=~/university/spring2020/math1310/hw/hw3/
 
 # current cs project directory
-hash -d cs=~/university/spring2020/cs1410/CS1410-Assignments/src/a2/
+hash -d cs=~/university/spring2020/cs1410/CS1410-Assignment3/
 
 # Go repository
 hash -d rosy=~/go/src/github.com/RosyGraph/
 
 # eBooks and other learning material
 hash -d learn=~/Documents/learning-resources/
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
