@@ -14,7 +14,7 @@
 	[neosnippet](https://github.com/Shougo/neosnippet.vim),
 	[LanguageClient](https://github.com/autozimu/LanguageClient-neovim),
 	[auto-pairs](https://github.com/jiangmiao/auto-pairs)
-  * language-specific tools - [vimtext](https://github.com/lervag/vimtex),
+  * language-specific tools - [vimtex](https://github.com/lervag/vimtex),
 	[vim-go](https://github.com/fatih/vim-go),
 	[NERDCommenter](https://github.com/scrooloose/nerdcommenter)
   * note taking - [vimwiki](https://github.com/vimwiki/vimwiki), [vim-notes](https://github.com/xolox/vim-notes)
