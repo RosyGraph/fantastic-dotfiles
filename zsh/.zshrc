@@ -110,7 +110,7 @@ hash -d u=~/university/spring2020/
 hash -d math=~/university/spring2020/math1310/hw/hw3/
 
 # current cs project directory
-hash -d cs=~/university/spring2020/cs1410/CS1410-Assignment3/
+hash -d cs=~/university/spring2020/cs1410/
 
 # Go repository
 hash -d rosy=~/go/src/github.com/RosyGraph/
