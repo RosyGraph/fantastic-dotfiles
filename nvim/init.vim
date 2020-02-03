@@ -131,12 +131,12 @@ autocmd Filetype vimwiki setlocal tw=80
 set completeopt-=preview
 
 " Visual settings
-colorscheme base16-ashes
+colorscheme base16-atelier-estuary
 set background=dark
 set termguicolors
 set noshowmode
 let g:lightline = {
-			\ 'colorscheme': 'base16_ashes'
+			\ 'colorscheme': 'base16_atelier_estuary'
 			\ }
 autocmd ColorScheme * hi! Normal ctermbg=none guibg=NONE
 syntax on
