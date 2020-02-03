@@ -106,6 +106,9 @@ alias twenty="~/go/bin/twenty &!"
 # u of u repo
 hash -d u=~/university/spring2020/
 
+# dotfiles
+hash -d dot=~/.dotfiles/
+
 # current math homework directory
 hash -d math=~/university/spring2020/math1310/hw/hw3/
 
