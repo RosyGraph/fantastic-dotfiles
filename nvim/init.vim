@@ -54,6 +54,12 @@ Plug 'jiangmiao/auto-pairs'
 " language-specific tools
 "
 
+" alchemist
+Plug 'slashmili/alchemist.vim'
+
+" vim-elixir
+Plug 'elixir-editors/vim-elixir'
+
 " vimtex
 Plug 'lervag/vimtex'
 
@@ -127,9 +133,6 @@ autocmd Filetype note setlocal tw=80
 " Vimwiki
 autocmd Filetype vimwiki setlocal tw=80
 
-" closes preview pane
-set completeopt-=preview
-
 " Visual settings
 colorscheme base16-atelier-estuary
 set background=dark
@@ -140,6 +143,23 @@ let g:lightline = {
 			\ }
 autocmd ColorScheme * hi! Normal ctermbg=none guibg=NONE
 syntax on
+
+"
+" elixir settings
+"
+autocmd BufWritePost *.exs,*.ex silent :!mix format %
+syntax match elixirCustomOperators "<-" conceal cchar=←
+syntax match elixirCustomOperators "->" conceal cchar=→
+
+syntax match elixirCustomOperators "==" conceal cchar=≡
+syntax match elixirCustomOperators "!=" conceal cchar=≠
+syntax match elixirCustomOperators "<=" conceal cchar=≤
+syntax match elixirCustomOperators ">=" conceal cchar=≥
+
+highlight  link elixirCustomOperators Operator
+highlight! link Conceal Operator
+
+autocmd FileType elixir nmap <Leader>mt :Mix test <CR>
 
 "
 " vim-go shortcuts
