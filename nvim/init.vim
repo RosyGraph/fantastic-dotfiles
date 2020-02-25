@@ -85,31 +85,33 @@ Plug 'xolox/vim-notes'
 
 call plug#end()
 
-" enable deoplete upon startup
+" autocomplete and snippets
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-set omnifunc=syntaxcomplete#Complete
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-let g:deoplete#auto_completion_start_length = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
-let g:deoplete#file#enable_buffer_path = 1
+" let g:deoplete#omni_patterns = {}
+" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+" let g:deoplete#auto_completion_start_length = 1
+" let g:deoplete#sources = {}
+" let g:deoplete#sources._ = []
+" let g:deoplete#file#enable_buffer_path = 1
+" set omnifunc=syntaxcomplete#Complete
 
-" JavaComplete config
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-" neosnippet config
 " use C-k for completion and jumping
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" JavaComplete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1" vimtex settings
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" vimtex
 
 let g:vimtex_view_method='skim'
 set conceallevel=1
@@ -118,14 +120,8 @@ let g:tex_flavor = "latex"
 let g:vimtex_indent_enabled=0
 autocmd Filetype tex setlocal tw=80
 
-" Set space delims for NERDCommenter
-let g:NERDSpaceDelims=1
-let g:python_host_prog  = '/path/to/python'  " Python 2
+" vim-notes
 
-" vim-go settings
-let g:go_fmt_command = "goimports"
-
-" vim-notes setting
 let g:notes_suffix = '.txt'
 autocmd Filetype txt setlocal tw=80
 autocmd Filetype note setlocal tw=80
@@ -133,20 +129,7 @@ autocmd Filetype note setlocal tw=80
 " Vimwiki
 autocmd Filetype vimwiki setlocal tw=80
 
-" Visual settings
-colorscheme base16-atelier-estuary
-set background=dark
-set termguicolors
-set noshowmode
-let g:lightline = {
-			\ 'colorscheme': 'base16_atelier_estuary'
-			\ }
-autocmd ColorScheme * hi! Normal ctermbg=none guibg=NONE
-syntax on
-
-"
-" elixir settings
-"
+" elixir
 autocmd BufWritePost *.exs,*.ex silent :!mix format %
 syntax match elixirCustomOperators "<-" conceal cchar=←
 syntax match elixirCustomOperators "->" conceal cchar=→
@@ -161,22 +144,19 @@ highlight! link Conceal Operator
 
 autocmd FileType elixir nmap <Leader>mt :Mix test <CR>
 
-"
-" vim-go shortcuts
-"
+" vim-go
 
 nnoremap <leader>gt :GoTest<ENTER>
 autocmd FileType go nmap <Leader>gi <Plug>(go-info)
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>gr <Plug>(go-run)
 autocmd FileType go nmap <Leader>gb <Plug>(go-build)
+let g:go_fmt_command = "goimports"
 
-"
-" eclim settings
-"
+" eclim
 
-" run open buffer's java file
 autocmd FileType java nnoremap <silent> <buffer> <leader>jj :Java %<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>jt :JUnit %<cr>
 autocmd FileType java nnoremap <silent> <buffer> <leader>pr :ProjectRefresh<cr>
 autocmd FileType java nnoremap <silent> <buffer> <leader>pl :ProjectList<cr>
 autocmd FileType java nnoremap <silent> <buffer> <leader>pb :ProjectBuild<cr>
@@ -188,7 +168,23 @@ let g:EclimProjectTreeAutoOpen=1
 " fzf
 set rtp+=/usr/local/opt/fzf
 
-" General settings
+" visual
+
+colorscheme base16-atelier-estuary
+set background=dark
+set termguicolors
+set noshowmode
+let g:lightline = {
+			\ 'colorscheme': 'base16_atelier_estuary'
+			\ }
+autocmd colorscheme * hi! Normal ctermbg=none guibg=NONE
+syntax on
+
+" set space delims for NERDCommenter
+let g:NERDSpaceDelims=1
+let g:python_host_prog  = '/path/to/python'  " Python 2
+
+" general settings
 filetype plugin on
 filetype plugin indent on
 set autoindent
@@ -200,3 +196,14 @@ set number
 set splitright
 set clipboard=unnamed
 set ignorecase smartcase
+
+" leave terminal mode with ESC
+:tnoremap <Esc> <C-\><C-n>
+
+" add folding behavior
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
