@@ -109,11 +109,14 @@ hash -d u=~/university/spring2020/
 # dotfiles
 hash -d dot=~/.dotfiles/
 
-# current math homework directory
-hash -d math=~/university/spring2020/math1310/hw/hw3/
+# math1310
+hash -d math=~/university/spring2020/math1310/hw/hw5/
 
-# current cs project directory
+# cs1410
 hash -d cs=~/university/spring2020/cs1410/
+
+# cs1410
+hash -d wrtg=~/university/spring2020/wrtg2010/
 
 # Go repository
 hash -d rosy=~/go/src/github.com/RosyGraph/
