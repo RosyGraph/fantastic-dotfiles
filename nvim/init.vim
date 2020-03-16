@@ -12,18 +12,18 @@ Plug 'chriskempson/base16-vim'
 Plug 'atelierbram/Base2Tone-vim'
 
 " yin-yang theme
-Plug 'pgdouyon/vim-yin-yang'
+" Plug 'pgdouyon/vim-yin-yang'
 
 " kemonofriends
-Plug 'machakann/vim-colorscheme-kemonofriends'
+" Plug 'machakann/vim-colorscheme-kemonofriends'
 
 "
 "status bar
 "
 
 " lightline
-Plug 'itchyny/lightline.vim'
-Plug 'mike-hearn/base16-vim-lightline'
+" Plug 'itchyny/lightline.vim'
+" Plug 'mike-hearn/base16-vim-lightline'
 
 "
 " autocomplete
@@ -89,13 +89,13 @@ call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-" let g:deoplete#omni_patterns = {}
-" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-" let g:deoplete#auto_completion_start_length = 1
-" let g:deoplete#sources = {}
-" let g:deoplete#sources._ = []
-" let g:deoplete#file#enable_buffer_path = 1
-" set omnifunc=syntaxcomplete#Complete
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+let g:deoplete#auto_completion_start_length = 1
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
+let g:deoplete#file#enable_buffer_path = 1
+set omnifunc=syntaxcomplete#Complete
 
 " use C-k for completion and jumping
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -106,7 +106,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1" vimtex settings
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
@@ -116,7 +116,19 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 let g:vimtex_view_method='skim'
 set conceallevel=1
 let g:tex_conceal='abdmg'
-let g:tex_flavor = "latex"
+let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = { 
+        \ 'executable' : 'latexmk',
+        \ 'options' : [ 
+        \   '-xelatex',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
+" let g:vimtex_compiler_progname = 'nvr'
+" let g:vimtex_view_automatic = 0
+" let g:vimtex_compiler_method='latexmk'
 let g:vimtex_indent_enabled=0
 autocmd Filetype tex setlocal tw=80
 
@@ -170,21 +182,21 @@ set rtp+=/usr/local/opt/fzf
 
 " visual
 
-colorscheme base16-atelier-estuary
-set background=dark
-set termguicolors
+colorscheme Base2Tone_DesertLight
+" set background=dark
+" set termguicolors
 set noshowmode
 let g:lightline = {
-			\ 'colorscheme': 'base16_atelier_estuary'
+			\ 'colorscheme': 'Base2Tone_DesertLight'
 			\ }
-autocmd colorscheme * hi! Normal ctermbg=none guibg=NONE
+" autocmd colorscheme * hi! Normal ctermbg=none guibg=NONE
 syntax on
 
 " set space delims for NERDCommenter
 let g:NERDSpaceDelims=1
-let g:python_host_prog  = '/path/to/python'  " Python 2
 
 " general settings
+" let g:python3_host_prog  = '/usr/local/bin/python3'
 filetype plugin on
 filetype plugin indent on
 set autoindent
@@ -201,9 +213,9 @@ set ignorecase smartcase
 :tnoremap <Esc> <C-\><C-n>
 
 " add folding behavior
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+" augroup remember_folds
+  " autocmd!
+  " autocmd BufWinLeave * mkview
+  " autocmd BufWinEnter * silent! loadview
+" augroup END
 
