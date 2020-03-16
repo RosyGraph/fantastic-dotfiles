@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/christopherstevenson/.oh-my-zsh"
@@ -71,9 +71,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Set PATH for Python 3.7
-PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH
+# set python path
+export PATH=/Users/christopherstevenson/Library/Python/3.7/bin:$PATH
 
 # Aliases
 
@@ -110,7 +109,7 @@ hash -d u=~/university/spring2020/
 hash -d dot=~/.dotfiles/
 
 # math1310
-hash -d math=~/university/spring2020/math1310/hw/hw5/
+hash -d math=~/university/spring2020/math1310/
 
 # cs1410
 hash -d cs=~/university/spring2020/cs1410/
