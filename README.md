@@ -1,8 +1,4 @@
-# config files for [neovim](http://neovim.io),
-[zsh](http://zsh.sourceforge.net),
-[yabai](https://github.com/koekeishiya/yabai),
-[kitty](https://github.com/kovidgoyal/kitty) and
-[skhd](https://github.com/koekeishiya/skhd)
+# config files for [neovim](http://neovim.io), [zsh](http://zsh.sourceforge.net), [yabai](https://github.com/koekeishiya/yabai), [kitty](https://github.com/kovidgoyal/kitty) and [skhd](https://github.com/koekeishiya/skhd)
 
 * neovim
   * colorschemes - [Base2_DesertLight](https://github.com/atelierbram/Base2Tone-vim/tree/master/colors),
