@@ -5,8 +5,7 @@
 [skhd](https://github.com/koekeishiya/skhd)
 
 * neovim
-  * colorschemes - [base16 - atelier-estuary](https://github.com/chriskempson/base16-vim),
-  * status bar - [lightline](https://github.com/itchyny/lightline.vim)
+  * colorschemes - [Base2_DesertLight](https://github.com/atelierbram/Base2Tone-vim/tree/master/colors),
   * autocomplete - [deoplete](https://github.com/Shougo/deoplete.nvim),
 	[neosnippet](https://github.com/Shougo/neosnippet.vim),
 	[LanguageClient](https://github.com/autozimu/LanguageClient-neovim),
@@ -14,7 +13,7 @@
   * language-specific tools - [vimtex](https://github.com/lervag/vimtex),
 	[vim-go](https://github.com/fatih/vim-go),
 	[NERDCommenter](https://github.com/scrooloose/nerdcommenter)
-  * note taking - [vimwiki](https://github.com/vimwiki/vimwiki), [vim-notes](https://github.com/xolox/vim-notes)
+  * note taking - [vimwiki](https://github.com/vimwiki/vimwiki)
   * plugin manager - [vim-plug](https://github.com/junegunn/vim-plug)
 
 ![screenshot](/screens/screen1.png)
