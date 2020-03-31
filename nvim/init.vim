@@ -79,10 +79,6 @@ Plug 'dansomething/vim-eclim'
 " Vimwiki
 Plug 'vimwiki/vimwiki'
 
-" vim-notes
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
-
 call plug#end()
 
 " autocomplete and snippets
@@ -96,6 +92,9 @@ let g:deoplete#sources = {}
 let g:deoplete#sources._ = []
 let g:deoplete#file#enable_buffer_path = 1
 set omnifunc=syntaxcomplete#Complete
+call deoplete#custom#var('omni', 'input_patterns', {
+	  \ 'tex': g:vimtex#re#deoplete
+	  \})
 
 " use C-k for completion and jumping
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -131,7 +130,6 @@ let g:vimtex_compiler_latexmk = {
 " let g:vimtex_compiler_method='latexmk'
 let g:vimtex_indent_enabled=0
 autocmd Filetype tex setlocal tw=80
-
 " vim-notes
 
 let g:notes_suffix = '.txt'
@@ -158,12 +156,28 @@ autocmd FileType elixir nmap <Leader>mt :Mix test <CR>
 
 " vim-go
 
-nnoremap <leader>gt :GoTest<ENTER>
+autocmd FileType go nmap <Leader>gt <Plug>(go-test)
 autocmd FileType go nmap <Leader>gi <Plug>(go-info)
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>gr <Plug>(go-run)
 autocmd FileType go nmap <Leader>gb <Plug>(go-build)
 let g:go_fmt_command = "goimports"
+let g:go_term_mode = "vsplit"
+function! ReuseVimGoTerm(cmd) abort
+    for w in nvim_list_wins()
+        if "goterm" == nvim_buf_get_option(nvim_win_get_buf(w), 'filetype')
+            call nvim_win_close(w, v:true)
+            break
+        endif
+    endfor
+    execute a:cmd
+endfunction
+
+let g:go_term_enabled = 1
+let g:go_term_mode = "silent keepalt rightbelow 15 split"
+let g:go_def_reuse_buffer = 1
+
+autocmd FileType go nmap <silent> <leader>gr :call ReuseVimGoTerm('GoRun')<Return>
 
 " eclim
 
@@ -184,7 +198,7 @@ set rtp+=/usr/local/opt/fzf
 
 colorscheme Base2Tone_DesertLight
 " set background=dark
-" set termguicolors
+set termguicolors
 set noshowmode
 let g:lightline = {
 			\ 'colorscheme': 'Base2Tone_DesertLight'
@@ -205,12 +219,22 @@ set tabstop=4
 set noexpandtab
 set shiftwidth=4
 set number
+set relativenumber
 set splitright
 set clipboard=unnamed
 set ignorecase smartcase
 
 " leave terminal mode with ESC
 :tnoremap <Esc> <C-\><C-n>
+
+" turn off scratch preview
+set completeopt-=preview
+
+" better window mappings
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " add folding behavior
 " augroup remember_folds
