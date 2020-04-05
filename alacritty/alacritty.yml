@@ -170,12 +170,12 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night Bright)
+# Colors (based on atelier's forest-light vim theme)
 colors:
   # Default colors
   primary:
-   background: '#fbfaf9'
-   foreground: '#ac8e53'
+   background: '#f1efee'
+   foreground: '#68615e'
 
     # Bright and dim foreground colors
     #
@@ -212,25 +212,25 @@ colors:
 
   # Normal colors
   normal:
-   black:   '#fbfaf9'
-   red:     '#ddcba6'
-   green:   '#dcd5d0'
-   yellow:  '#cac3be'
-   blue:    '#908774'
-   magenta: '#ec9255'
-   cyan:    '#dd7c3c'
-   white:   '#bc672f'
+   black:   '#f1efee'
+   red:     '#f22c40'
+   green:   '#7b9726'
+   yellow:  '#c38418'
+   blue:    '#407ee7'
+   magenta: '#6666ea'
+   cyan:    '#9c9491'
+   white:   '#68615e'
 
   # Bright colors
   bright:
-   black:   '#e58748'
-   red:     '#ac8e53'
-   green:   '#dd7c3c'
-   yellow:  '#847b75'
-   blue:    '#5c523d'
-   magenta: '#e58748'
-   cyan:    '#c6ad7b'
-   white:   '#ede7e3'
+   black:   '#9c9491'
+   red:     '#f22c40'
+   green:   '#7b9726'
+   yellow:  '#c38418'
+   blue:    '#407ee7'
+   magenta: '#6666ea'
+   cyan:    '#3d97b8'
+   white:   '#1b1918'
 
   # Dim colors
   #
