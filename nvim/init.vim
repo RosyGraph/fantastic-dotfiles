@@ -5,11 +5,18 @@ call plug#begin()
 " colorschemes
 "
 
-"base16 colors
+" vim-colorscheme-switcher
+" Plug 'xolox/vim-colorscheme-switcher'
+" Plug 'xolox/vim-misc'
+
+" colour sampler pack
+" Plug 'vim-scripts/Colour-Sampler-Pack'
+
+" base16 colors
 Plug 'chriskempson/base16-vim'
 
 " Base2Tone schemes
-Plug 'atelierbram/Base2Tone-vim'
+" Plug 'atelierbram/Base2Tone-vim'
 
 " yin-yang theme
 " Plug 'pgdouyon/vim-yin-yang'
@@ -130,6 +137,8 @@ let g:vimtex_compiler_latexmk = {
 " let g:vimtex_compiler_method='latexmk'
 let g:vimtex_indent_enabled=0
 autocmd Filetype tex setlocal tw=80
+autocmd Filetype tex nmap <Leader>wc :VimtexCountWords <CR>
+
 " vim-notes
 
 let g:notes_suffix = '.txt'
@@ -161,6 +170,8 @@ autocmd FileType go nmap <Leader>gi <Plug>(go-info)
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>gr <Plug>(go-run)
 autocmd FileType go nmap <Leader>gb <Plug>(go-build)
+
+" fancy go terminal
 let g:go_fmt_command = "goimports"
 let g:go_term_mode = "vsplit"
 function! ReuseVimGoTerm(cmd) abort
@@ -196,18 +207,21 @@ set rtp+=/usr/local/opt/fzf
 
 " visual
 
-colorscheme Base2Tone_DesertLight
+colorscheme base16-atelier-forest-light
 " set background=dark
 set termguicolors
 set noshowmode
-let g:lightline = {
-			\ 'colorscheme': 'Base2Tone_DesertLight'
-			\ }
+" let g:lightline = {
+			" \ 'colorscheme': 'base16-atelier-forest-light'
+			" \ }
 " autocmd colorscheme * hi! Normal ctermbg=none guibg=NONE
 syntax on
 
 " set space delims for NERDCommenter
 let g:NERDSpaceDelims=1
+
+" run the current python file
+autocmd FileType python nnoremap <silent> <buffer> <leader>r :!python3 % <CR>
 
 " general settings
 " let g:python3_host_prog  = '/usr/local/bin/python3'
