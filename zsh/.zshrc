@@ -92,7 +92,7 @@ alias nt="nvim -p ./*"
 alias simplify="~/go/src/github.com/RosyGraph/simplify/simplify"
 
 # Python3 alias
-alias py3="python3"
+alias python="python3"
 alias tensorflow="source ~/envs/tensorflow/bin/activate"
 
 # open a file in skim
