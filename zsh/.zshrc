@@ -124,3 +124,4 @@ hash -d rosy=~/go/src/github.com/RosyGraph/
 hash -d learn=~/Documents/learning-resources/
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/

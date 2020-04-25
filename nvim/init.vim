@@ -36,13 +36,16 @@ Plug 'chriskempson/base16-vim'
 " autocomplete
 "
 
+" java-language-server
+" Plug 'georgewfraser/java-language-server'
+
 " vim-snippets
 Plug 'honza/vim-snippets'
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'artur-shaik/vim-javacomplete2'
+" Plug 'artur-shaik/vim-javacomplete2'
 
 " neosnippet
 Plug 'Shougo/neosnippet.vim'
@@ -77,7 +80,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scrooloose/nerdcommenter'
 
 " vim-eclim
-Plug 'dansomething/vim-eclim'
+" Plug 'dansomething/vim-eclim'
 
 "
 " note taking
@@ -89,6 +92,11 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " autocomplete and snippets
+
+" LSP
+" let g:LanguageClient_serverCommands = {
+    " \ 'java': ['/usr/local/bin/jdtls', '-data', getcwd()],
+    " \ }
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
@@ -103,13 +111,30 @@ call deoplete#custom#var('omni', 'input_patterns', {
 	  \ 'tex': g:vimtex#re#deoplete
 	  \})
 
+" function SetLSPShortcuts()
+  " nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  " nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  " nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  " nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  " nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  " nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  " nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  " nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  " nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  " nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+" endfunction()
+
+" augroup LSP
+  " autocmd!
+  " autocmd FileType java call SetLSPShortcuts()
+" augroup END
 " use C-k for completion and jumping
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " JavaComplete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -138,6 +163,13 @@ let g:vimtex_compiler_latexmk = {
 let g:vimtex_indent_enabled=0
 autocmd Filetype tex setlocal tw=80
 autocmd Filetype tex nmap <Leader>wc :VimtexCountWords <CR>
+let g:vimtex_quickfix_latexlog = {
+          \ 'overfull' : 0,
+          \ 'underfull' : 0,
+          \ 'packages' : {
+          \   'default' : 0,
+          \ },
+          \}
 
 " vim-notes
 
@@ -192,7 +224,7 @@ autocmd FileType go nmap <silent> <leader>gr :call ReuseVimGoTerm('GoRun')<Retur
 
 " eclim
 
-autocmd FileType java nnoremap <silent> <buffer> <leader>jj :Java %<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>r :Java %<cr>
 autocmd FileType java nnoremap <silent> <buffer> <leader>jt :JUnit %<cr>
 autocmd FileType java nnoremap <silent> <buffer> <leader>pr :ProjectRefresh<cr>
 autocmd FileType java nnoremap <silent> <buffer> <leader>pl :ProjectList<cr>
@@ -237,6 +269,8 @@ set relativenumber
 set splitright
 set clipboard=unnamed
 set ignorecase smartcase
+" Always draw the signcolumn.
+set signcolumn=yes
 
 " leave terminal mode with ESC
 :tnoremap <Esc> <C-\><C-n>
