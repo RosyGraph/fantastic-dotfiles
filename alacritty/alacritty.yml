@@ -97,7 +97,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: OCRA
+    family: SF Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -136,12 +136,12 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
-  # offset:
-   # x: 0
+  offset:
+   x: 1
    # y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
@@ -170,12 +170,12 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (based on atelier's forest-light vim theme)
+# Colors (based on gruvbox pale)
 colors:
   # Default colors
   primary:
-   background: '#f1efee'
-   foreground: '#68615e'
+   background: '#262626'
+   foreground: '#83adad'
 
     # Bright and dim foreground colors
     #
@@ -212,25 +212,25 @@ colors:
 
   # Normal colors
   normal:
-   black:   '#f1efee'
-   red:     '#f22c40'
-   green:   '#7b9726'
-   yellow:  '#c38418'
-   blue:    '#407ee7'
-   magenta: '#6666ea'
-   cyan:    '#9c9491'
-   white:   '#68615e'
+   black:   '#262626'
+   red:     '#d75f5f'
+   green:   '#afaf00'
+   yellow:  '#ffaf00'
+   blue:    '#83adad'
+   magenta: '#d485ad'
+   cyan:    '#85ad85'
+   white:   '#dab997'
 
   # Bright colors
   bright:
-   black:   '#9c9491'
-   red:     '#f22c40'
-   green:   '#7b9726'
-   yellow:  '#c38418'
-   blue:    '#407ee7'
-   magenta: '#6666ea'
-   cyan:    '#3d97b8'
-   white:   '#1b1918'
+   black:   '#8a8a8a'
+   red:     '#d75f5f'
+   green:   '#afaf00'
+   yellow:  '#ffaf00'
+   blue:    '#83adad'
+   magenta: '#d485ad'
+   cyan:    '#85ad85'
+   white:   '#ebdbb2'
 
   # Dim colors
   #

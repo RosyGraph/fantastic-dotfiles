@@ -72,7 +72,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # set python path
-export PATH=/Users/christopherstevenson/Library/Python/3.7/bin:$PATH
+# export PATH=/Users/christopherstevenson/Library/Python/3.7/bin:$PATH
+export PATH=/usr/local/share/python:$PATH
 
 # Aliases
 
@@ -123,5 +124,12 @@ hash -d rosy=~/go/src/github.com/RosyGraph/
 # eBooks and other learning material
 hash -d learn=~/Documents/learning-resources/
 
+# Enable fuzzy finder.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Set Java path.
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/
+
+# University secrets.
+export PIKE_USER='chris.stevenson@live.com'
+export PIKE_PASS='password'

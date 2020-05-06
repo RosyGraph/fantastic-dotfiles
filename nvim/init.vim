@@ -99,13 +99,9 @@ call plug#end()
     " \ }
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 let g:deoplete#auto_completion_start_length = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
-let g:deoplete#file#enable_buffer_path = 1
 set omnifunc=syntaxcomplete#Complete
 call deoplete#custom#var('omni', 'input_patterns', {
 	  \ 'tex': g:vimtex#re#deoplete
@@ -239,7 +235,7 @@ set rtp+=/usr/local/opt/fzf
 
 " visual
 
-colorscheme base16-atelier-forest-light
+colorscheme base16-gruvbox-dark-pale
 " set background=dark
 set termguicolors
 set noshowmode
@@ -269,8 +265,6 @@ set relativenumber
 set splitright
 set clipboard=unnamed
 set ignorecase smartcase
-" Always draw the signcolumn.
-set signcolumn=yes
 
 " leave terminal mode with ESC
 :tnoremap <Esc> <C-\><C-n>
