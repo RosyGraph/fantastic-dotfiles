@@ -6,12 +6,12 @@ call plug#begin()
 "
 
 " vim-colorscheme-switcher
-" Plug 'xolox/vim-colorscheme-switcher'
-" Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-misc'
 
 " colour sampler pack
 " Plug 'vim-scripts/Colour-Sampler-Pack'
-
+Plug 'pbrisbin/vim-colors-off'
 " base16 colors
 Plug 'chriskempson/base16-vim'
 
@@ -57,6 +57,13 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+" Haskell completion
+Plug 'eagletmt/neco-ghc'
+
+" Haskell reformatting
+Plug 'jaspervdj/stylish-haskell'
+Plug 'Chiel92/vim-autoformat'
+
 " autopairs
 Plug 'jiangmiao/auto-pairs'
 
@@ -79,6 +86,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " NERDCommenter
 Plug 'scrooloose/nerdcommenter'
 
+" Black
+Plug 'psf/black', { 'tag': '19.10b0' }
+
 " vim-eclim
 " Plug 'dansomething/vim-eclim'
 
@@ -92,6 +102,10 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " autocomplete and snippets
+
+" Format python code on buffer write.
+autocmd BufWritePre *.py execute ':Black'
+let g:black_linelength=80
 
 " LSP
 " let g:LanguageClient_serverCommands = {
@@ -144,6 +158,10 @@ let g:vimtex_view_method='skim'
 set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:tex_flavor = 'latex'
+autocmd BufReadPost *.tex set syntax=context
+
+" Disable all warnings
+let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_compiler_latexmk = { 
         \ 'executable' : 'latexmk',
         \ 'options' : [ 
@@ -153,9 +171,6 @@ let g:vimtex_compiler_latexmk = {
         \   '-interaction=nonstopmode',
         \ ],
         \}
-" let g:vimtex_compiler_progname = 'nvr'
-" let g:vimtex_view_automatic = 0
-" let g:vimtex_compiler_method='latexmk'
 let g:vimtex_indent_enabled=0
 autocmd Filetype tex setlocal tw=80
 autocmd Filetype tex nmap <Leader>wc :VimtexCountWords <CR>
@@ -168,13 +183,12 @@ let g:vimtex_quickfix_latexlog = {
           \}
 
 " vim-notes
-
 let g:notes_suffix = '.txt'
 autocmd Filetype txt setlocal tw=80
 autocmd Filetype note setlocal tw=80
 
 " Vimwiki
-autocmd Filetype vimwiki setlocal tw=80
+autocmd FileType vimwiki setlocal tw=80
 
 " elixir
 autocmd BufWritePost *.exs,*.ex silent :!mix format %
@@ -190,6 +204,10 @@ highlight  link elixirCustomOperators Operator
 highlight! link Conceal Operator
 
 autocmd FileType elixir nmap <Leader>mt :Mix test <CR>
+
+" haskell
+autocmd BufWritePre *.hs :Autoformat
+autocmd FileType haskell let b:autoformat_autoindent = 0
 
 " vim-go
 
@@ -235,8 +253,8 @@ set rtp+=/usr/local/opt/fzf
 
 " visual
 
-colorscheme base16-gruvbox-dark-pale
-" set background=dark
+colorscheme off
+set background=light
 set termguicolors
 set noshowmode
 " let g:lightline = {
@@ -285,3 +303,4 @@ nnoremap <C-H> <C-W><C-H>
   " autocmd BufWinEnter * silent! loadview
 " augroup END
 
+autocmd Filetype haskell setlocal expandtab
