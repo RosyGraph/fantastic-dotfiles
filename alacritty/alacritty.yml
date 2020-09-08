@@ -172,11 +172,11 @@ font:
 # draw_bold_text_with_bright_colors: true
 
 # Colors (based on github)
-# colors:
+colors:
   # Default colors
-  # primary:
-   # background: '#ffffff'
-   # foreground: '#212121'
+  primary:
+   background: '#ffffff'
+   foreground: '#212121'
 
     # Bright and dim foreground colors
     #
