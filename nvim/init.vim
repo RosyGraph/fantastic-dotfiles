@@ -5,18 +5,24 @@ call plug#begin()
 " colorschemes
 "
 
+" minimal vim colorschemes
+Plug 'pbrisbin/vim-colors-off'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'rafi/awesome-vim-colorschemes'
+
 " vim-colorscheme-switcher
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 
 " colour sampler pack
 " Plug 'vim-scripts/Colour-Sampler-Pack'
-Plug 'pbrisbin/vim-colors-off'
+
+
 " base16 colors
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 
 " Base2Tone schemes
-" Plug 'atelierbram/Base2Tone-vim'
+Plug 'atelierbram/Base2Tone-vim'
 
 " yin-yang theme
 " Plug 'pgdouyon/vim-yin-yang'
@@ -25,19 +31,8 @@ Plug 'chriskempson/base16-vim'
 " Plug 'machakann/vim-colorscheme-kemonofriends'
 
 "
-"status bar
-"
-
-" lightline
-" Plug 'itchyny/lightline.vim'
-" Plug 'mike-hearn/base16-vim-lightline'
-
-"
 " autocomplete
 "
-
-" java-language-server
-" Plug 'georgewfraser/java-language-server'
 
 " vim-snippets
 Plug 'honza/vim-snippets'
@@ -45,13 +40,12 @@ Plug 'honza/vim-snippets'
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
-" Plug 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2'
 
 " neosnippet
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
-" LanguageClient
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -72,10 +66,10 @@ Plug 'jiangmiao/auto-pairs'
 "
 
 " alchemist
-Plug 'slashmili/alchemist.vim'
+" Plug 'slashmili/alchemist.vim'
 
 " vim-elixir
-Plug 'elixir-editors/vim-elixir'
+" Plug 'elixir-editors/vim-elixir'
 
 " vimtex
 Plug 'lervag/vimtex'
@@ -107,37 +101,40 @@ call plug#end()
 autocmd BufWritePre *.py execute ':Black'
 let g:black_linelength=80
 
-" LSP
-" let g:LanguageClient_serverCommands = {
-    " \ 'java': ['/usr/local/bin/jdtls', '-data', getcwd()],
-    " \ }
-
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 let g:deoplete#auto_completion_start_length = 1
 set omnifunc=syntaxcomplete#Complete
 call deoplete#custom#var('omni', 'input_patterns', {
 	  \ 'tex': g:vimtex#re#deoplete
 	  \})
 
-" function SetLSPShortcuts()
-  " nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-  " nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-  " nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-  " nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-  " nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-  " nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-  " nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-  " nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-  " nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-  " nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-" endfunction()
+call deoplete#custom#option('jac', 'javacomplete2', 'file', 'buffer', 'neosnippet')
+" let g:deoplete#sources.java = ['jac', 'javacomplete2', 'file', 'buffer', 'neosnippet']
 
-" augroup LSP
-  " autocmd!
-  " autocmd FileType java call SetLSPShortcuts()
-" augroup END
+" automatically start language servers
+" let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_ServerCommands = {
+" }
+
+function SetLSPShortcuts()
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType java call SetLSPShortcuts()
+augroup END
 " use C-k for completion and jumping
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -145,6 +142,8 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " JavaComplete
 " autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType java nmap <Leader>gt :!./gradlew test <CR>
+autocmd FileType java nmap <Leader>gr :!./gradlew run <CR>
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -158,7 +157,7 @@ let g:vimtex_view_method='skim'
 set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:tex_flavor = 'latex'
-autocmd BufReadPost *.tex set syntax=context
+" autocmd BufReadPost *.tex set syntax=context
 
 " Disable all warnings
 let g:vimtex_quickfix_open_on_warning = 0
@@ -174,13 +173,11 @@ let g:vimtex_compiler_latexmk = {
 let g:vimtex_indent_enabled=0
 autocmd Filetype tex setlocal tw=80
 autocmd Filetype tex nmap <Leader>wc :VimtexCountWords <CR>
-let g:vimtex_quickfix_latexlog = {
-          \ 'overfull' : 0,
-          \ 'underfull' : 0,
-          \ 'packages' : {
-          \   'default' : 0,
-          \ },
-          \}
+let g:vimtex_quickfix_ignore_filters = [
+          \ 'overfull',
+          \ 'underfull',
+          \ 'packages',
+          \]
 
 " vim-notes
 let g:notes_suffix = '.txt'
@@ -191,19 +188,19 @@ autocmd Filetype note setlocal tw=80
 autocmd FileType vimwiki setlocal tw=80
 
 " elixir
-autocmd BufWritePost *.exs,*.ex silent :!mix format %
-syntax match elixirCustomOperators "<-" conceal cchar=←
-syntax match elixirCustomOperators "->" conceal cchar=→
+" autocmd BufWritePost *.exs,*.ex silent :!mix format %
+" syntax match elixirCustomOperators "<-" conceal cchar=←
+" syntax match elixirCustomOperators "->" conceal cchar=→
 
-syntax match elixirCustomOperators "==" conceal cchar=≡
-syntax match elixirCustomOperators "!=" conceal cchar=≠
-syntax match elixirCustomOperators "<=" conceal cchar=≤
-syntax match elixirCustomOperators ">=" conceal cchar=≥
+" syntax match elixirCustomOperators "==" conceal cchar=≡
+" syntax match elixirCustomOperators "!=" conceal cchar=≠
+" syntax match elixirCustomOperators "<=" conceal cchar=≤
+" syntax match elixirCustomOperators ">=" conceal cchar=≥
 
-highlight  link elixirCustomOperators Operator
-highlight! link Conceal Operator
+" highlight  link elixirCustomOperators Operator
+" highlight! link Conceal Operator
 
-autocmd FileType elixir nmap <Leader>mt :Mix test <CR>
+" autocmd FileType elixir nmap <Leader>mt :Mix test <CR>
 
 " haskell
 autocmd BufWritePre *.hs :Autoformat
@@ -237,26 +234,29 @@ let g:go_def_reuse_buffer = 1
 autocmd FileType go nmap <silent> <leader>gr :call ReuseVimGoTerm('GoRun')<Return>
 
 " eclim
-
-autocmd FileType java nnoremap <silent> <buffer> <leader>r :Java %<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>jt :JUnit %<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>pr :ProjectRefresh<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>pl :ProjectList<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>pb :ProjectBuild<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
-autocmd FileType java nnoremap <silent> <buffer> nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
-let g:EclimProjectTreeAutoOpen=1
+" autocmd FileType java nnoremap <silent> <buffer> <leader>r :Java %<cr>
+" autocmd FileType java nnoremap <silent> <buffer> <leader>jt :JUnit %<cr>
+" autocmd FileType java nnoremap <silent> <buffer> <leader>pr :ProjectRefresh<cr>
+" autocmd FileType java nnoremap <silent> <buffer> <leader>pl :ProjectList<cr>
+" autocmd FileType java nnoremap <silent> <buffer> <leader>pb :ProjectBuild<cr>
+" autocmd FileType java nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+" autocmd FileType java nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+" autocmd FileType java nnoremap <silent> <buffer> nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
+" let g:EclimProjectTreeAutoOpen=1
 
 " fzf
 set rtp+=/usr/local/opt/fzf
 
 " visual
 
-colorscheme off
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 set background=light
 set termguicolors
-set noshowmode
+colorscheme Base2Tone_DesertLight
 " let g:lightline = {
 			" \ 'colorscheme': 'base16-atelier-forest-light'
 			" \ }
@@ -283,6 +283,8 @@ set relativenumber
 set splitright
 set clipboard=unnamed
 set ignorecase smartcase
+set cursorline
+highlight clear Conceal
 
 " leave terminal mode with ESC
 :tnoremap <Esc> <C-\><C-n>
@@ -295,6 +297,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" autoformat the current buffer with <leader> - fm
+" nnoremap <leader>fm :Autoformat<CR>
+autocmd BufWritePre *.java execute ':Autoformat'
 
 " add folding behavior
 " augroup remember_folds
