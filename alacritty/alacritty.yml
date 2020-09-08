@@ -74,8 +74,8 @@ window:
 
   # GTK theme variant (Linux/BSD only)
   #
-  # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
-  # Set this to `None` to use the default theme variant.
+  # Override the variant of the GTK theme. Commonly supported values are `dark`
+  # and `light`.  Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
 
 #scrolling:
@@ -100,18 +100,18 @@ font:
     family: OCRA
 
     # The `style` can be specified to pick a specific face.
-    # style: Medium
+    # style: Light
 
   # Bold font face
-  #bold:
+  # bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    # family: Courier Prime Sans
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    # style: Bold
 
   # Italic font face
   #italic:
@@ -136,12 +136,13 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 12
+  size: 10
 
-  # Offset is the extra space around each character. `offset.y` can be thought of
+  # Offset is the extra space around each character. `offset.y` can be
+  # thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
-   x: 1
+   x: 2
    # y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
@@ -165,17 +166,17 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  use_thin_strokes: true
+  use_thin_strokes: false
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+# draw_bold_text_with_bright_colors: true
 
 # Colors (based on github)
-colors:
+# colors:
   # Default colors
-  primary:
-   background: '#ffffff'
-   foreground: '#212121'
+  # primary:
+   # background: '#ffffff'
+   # foreground: '#212121'
 
     # Bright and dim foreground colors
     #
@@ -189,9 +190,9 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are
   # unset, the cursor color will be the inverse of the cell color.
-  cursor:
+  # cursor:
   #  text: '#000000'
-   cursor: '#C6C6C6'
+   # cursor: '#C6C6C6'
 
   # Vi mode cursor colors
   #
@@ -206,31 +207,31 @@ colors:
   # Colors which should be used to draw the selection area. If selection
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
-  selection:
+  # selection:
    # text: '#eaeaea'
-   background: '#b6d6fd'
+   # background: '#b6d6fd'
 
   # Normal colors
-  normal:
-   white:   '#F1F1F1'
-   red:     '#C30771'
-   green:   '#10A778'
-   yellow:  '#A89C14'
-   blue:    '#20BBFC'
-   magenta: '#523C79'
-   cyan:    '#20A5BA'
-   black:   '#424242'
+  # normal:
+   # white:   '#F1F1F1'
+   # red:     '#C30771'
+   # green:   '#10A778'
+   # yellow:  '#A89C14'
+   # blue:    '#20BBFC'
+   # magenta: '#523C79'
+   # cyan:    '#20A5BA'
+   # black:   '#424242'
 
   # Bright colors
-  bright:
-   white:   '#ffffff'
-   red:     '#E32791'
-   green:   '#5FD7A7'
-   yellow:  '#F3E430'
-   blue:    '#b6d6fd'
-   magenta: '#fb007a'
-   cyan:    '#4FB8CC'
-   black:   '#545454'
+  # bright:
+   # white:   '#ffffff'
+   # red:     '#E32791'
+   # green:   '#5FD7A7'
+   # yellow:  '#F3E430'
+   # blue:    '#b6d6fd'
+   # magenta: '#fb007a'
+   # cyan:    '#4FB8CC'
+   # black:   '#545454'
 
   # Dim colors
   #
@@ -652,3 +653,5 @@ colors:
 
   # Print all received window events.
   #print_events: false
+  #
+hide_cursor_when_typing: true
