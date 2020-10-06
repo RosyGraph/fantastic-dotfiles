@@ -34,6 +34,7 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
 " custom bindings {{{
+
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
@@ -44,8 +45,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 " }}}
 " completion {{{
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#auto_completion_start_length = 1
@@ -55,13 +58,17 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 lua <<EOF
 require'nvim_lsp'.jdtls.setup{}
 EOF
+
 " }}}
 " python {{{
+
 autocmd BufWritePre *.py execute ':Black'
 let g:black_linelength=80
 autocmd FileType python nnoremap <silent> <buffer> <leader>r :!python3 % <CR>
+
 " }}}
 " latex {{{
+
 set conceallevel=1
 let g:vimtex_view_method='skim'
 let g:tex_conceal='abdmg'
@@ -87,8 +94,10 @@ let g:vimtex_quickfix_ignore_filters = [
           \ 'underfull',
           \ 'packages',
           \]
+
 " }}}
 " go {{{
+
 autocmd FileType go nmap <Leader>gt <Plug>(go-test)
 autocmd FileType go nmap <Leader>gi <Plug>(go-info)
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -113,32 +122,43 @@ let g:go_term_mode = "silent keepalt rightbelow 15 split"
 let g:go_def_reuse_buffer = 1
 
 autocmd FileType go nmap <silent> <leader>gr :call ReuseVimGoTerm('GoRun')<Return>
+
 " }}}
 " haskell {{{
+
 autocmd BufWritePre *.hs :Autoformat
 autocmd FileType haskell let b:autoformat_autoindent = 0
 autocmd Filetype haskell setlocal expandtab
+
 " }}}
 " misc filetypes {{{
+
 let g:notes_suffix = '.txt'
 autocmd Filetype txt setlocal tw=80
 autocmd Filetype note setlocal tw=80
 autocmd FileType vimwiki setlocal tw=80
+autocmd FileType vim setlocal foldmethod=marker
+
 " }}}
 " misc {{{
+
 set rtp+=/usr/local/opt/fzf
 nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 autocmd BufWritePre *.java execute ':Autoformat'
+
 " }}}
 " visual {{{
+
 syntax on
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 colorscheme rosygraph
 let g:NERDSpaceDelims=1
+
 " }}}
 " general {{{
+
 filetype plugin on
 filetype plugin indent on
 set autoindent
@@ -155,5 +175,6 @@ set cursorline
 highlight clear Conceal
 set completeopt-=preview
 :tnoremap <Esc> <C-\><C-n>
+
 " }}}
 
