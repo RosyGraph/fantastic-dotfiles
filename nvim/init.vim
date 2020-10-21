@@ -3,8 +3,10 @@ call plug#begin()
 
 " Plug 'pbrisbin/vim-colors-off'
 " Plug 'atelierbram/Base2Tone-vim'
+Plug 'atelierbram/vim-colors_atelier-schemes'
 Plug 'cideM/yui'
-Plug 'noahfrederick/vim-noctu'
+Plug 'noahfrederick/vim-hemisu'
+Plug 'RosyGraph/vim-noctu'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 Plug 'neovim/nvim-lsp'
@@ -45,6 +47,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <leader>rm :let @m=system('reducematrix ' . shellescape(getreg('m')))<CR>
 
 " }}}
 " completion {{{
@@ -138,6 +141,7 @@ autocmd Filetype txt setlocal tw=80
 autocmd Filetype note setlocal tw=80
 autocmd FileType vimwiki setlocal tw=80
 autocmd FileType vim setlocal foldmethod=marker
+autocmd BufWritePre *.c :Autoformat
 
 " }}}
 " misc {{{
@@ -150,10 +154,12 @@ autocmd BufWritePre *.java execute ':Autoformat'
 " visual {{{
 
 syntax on
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-colorscheme rosygraph
+set termguicolors
+colorscheme Atelier_CaveDark
+
+hi Normal guibg=NONE ctermbg=NONE
+" highlight clear Conceal
+
 let g:NERDSpaceDelims=1
 
 " }}}
@@ -172,7 +178,6 @@ set splitright
 set clipboard=unnamed
 set ignorecase smartcase
 set cursorline
-highlight clear Conceal
 set completeopt-=preview
 :tnoremap <Esc> <C-\><C-n>
 
