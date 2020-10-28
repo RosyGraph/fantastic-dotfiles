@@ -1,12 +1,13 @@
 " plugins {{{
 call plug#begin()
 
+Plug 'machakann/vim-colorscheme-kemonofriends'
 " Plug 'pbrisbin/vim-colors-off'
 " Plug 'atelierbram/Base2Tone-vim'
 Plug 'atelierbram/vim-colors_atelier-schemes'
 Plug 'cideM/yui'
 Plug 'noahfrederick/vim-hemisu'
-Plug 'RosyGraph/vim-noctu'
+Plug 'noahfrederick/vim-noctu'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 Plug 'neovim/nvim-lsp'

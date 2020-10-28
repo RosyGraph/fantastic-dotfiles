@@ -36,7 +36,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
    x: 0
-   y: 3
+   y: 0
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -98,24 +98,24 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Courier Prime Code
+    family: OCRA
 
     # The `style` can be specified to pick a specific face.
     # style: Light
 
   # Bold font face
-  bold:
+  # bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Courier Prime Sans
+    # family: Courier Prime Sans
 
     # The `style` can be specified to pick a specific face.
     # style: Bold
 
   # Italic font face
-  #italic:
+  # italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
@@ -126,18 +126,18 @@ font:
     #style: Italic
 
   # Bold italic font face
-  bold_italic:
+  # bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Courier Prime Sans
+    # family: Courier Prime Sans
 
     # The `style` can be specified to pick a specific face.
     #style: Bold Italic
 
   # Point size
-  size: 12
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be
   # thought of
@@ -172,12 +172,12 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 # draw_bold_text_with_bright_colors: true
 
-# Colors (based on github)
+# Colors
 colors:
   # Default colors
   primary:
-   background: '#ffffff'
-   foreground: '#212121'
+   background: '#1d1f21'
+   foreground: '#F8B195'
 
     # Bright and dim foreground colors
     #
@@ -191,9 +191,9 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are
   # unset, the cursor color will be the inverse of the cell color.
-  # cursor:
-  #  text: '#000000'
-   # cursor: '#C6C6C6'
+  cursor:
+   text: '#000000'
+   cursor: '#f67280'
 
   # Vi mode cursor colors
   #
@@ -213,15 +213,15 @@ colors:
    # background: '#b6d6fd'
 
   # Normal colors
-  # normal:
-   # white:   '#F1F1F1'
-   # red:     '#C30771'
-   # green:   '#10A778'
-   # yellow:  '#A89C14'
-   # blue:    '#20BBFC'
-   # magenta: '#523C79'
-   # cyan:    '#20A5BA'
-   # black:   '#424242'
+  normal:
+   white:   '#F1F1F1'
+   red:     '#C30771'
+   green:   '#10A778'
+   yellow:  '#A89C14'
+   blue:    '#20BBFC'
+   magenta: '#523C79'
+   cyan:    '#20A5BA'
+   black:   '#424242'
 
   # Bright colors
   # bright:
@@ -299,14 +299,14 @@ colors:
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
 
-#cursor:
+cursor:
   # Cursor style
   #
   # Values for `style`:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  #style: Block
+  style: Underline
 
   # Vi mode cursor style
   #
