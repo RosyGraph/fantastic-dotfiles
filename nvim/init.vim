@@ -2,18 +2,21 @@
 call plug#begin()
 
 Plug 'machakann/vim-colorscheme-kemonofriends'
+Plug 'chriskempson/base16-vim'
 " Plug 'pbrisbin/vim-colors-off'
 " Plug 'atelierbram/Base2Tone-vim'
 Plug 'atelierbram/vim-colors_atelier-schemes'
 Plug 'cideM/yui'
 Plug 'noahfrederick/vim-hemisu'
 Plug 'noahfrederick/vim-noctu'
+" Plug 'camgunz/amber'
+Plug 'RosyGraph/amber'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
-Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoppet.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
 " Plug 'artur-shaik/vim-javacomplete2'
 Plug 'Shougo/neosnippet.vim'
@@ -25,7 +28,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 	" \ }
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'psf/black', { 'tag': '19.10b0' }
@@ -37,6 +40,7 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
 " custom bindings {{{
+
 
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -53,15 +57,13 @@ nnoremap <leader>rm :let @m=system('reducematrix ' . shellescape(getreg('m')))<C
 " }}}
 " completion {{{
 
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#auto_completion_start_length = 1
-autocmd FileType java setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-lua <<EOF
-require'nvim_lsp'.jdtls.setup{}
-EOF
+autocmd FileType java setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 " }}}
 " python {{{
@@ -100,33 +102,8 @@ let g:vimtex_quickfix_ignore_filters = [
           \]
 
 " }}}
-" go {{{
-
-autocmd FileType go nmap <Leader>gt <Plug>(go-test)
-autocmd FileType go nmap <Leader>gi <Plug>(go-info)
-autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
-autocmd FileType go nmap <Leader>gr <Plug>(go-run)
-autocmd FileType go nmap <Leader>gb <Plug>(go-build)
-
-" fancy go terminal
-let g:go_fmt_command = "goimports"
-let g:go_term_mode = "vsplit"
-function! ReuseVimGoTerm(cmd) abort
-    for w in nvim_list_wins()
-        if "goterm" == nvim_buf_get_option(nvim_win_get_buf(w), 'filetype')
-            call nvim_win_close(w, v:true)
-            break
-        endif
-    endfor
-    execute a:cmd
-endfunction
-
-let g:go_term_enabled = 1
-let g:go_term_mode = "silent keepalt rightbelow 15 split"
-let g:go_def_reuse_buffer = 1
-
-autocmd FileType go nmap <silent> <leader>gr :call ReuseVimGoTerm('GoRun')<Return>
-
+" r markdown {{{
+autocmd BufWritePost *.rmd :call RMakeRmd("default")
 " }}}
 " haskell {{{
 
@@ -143,6 +120,8 @@ autocmd Filetype note setlocal tw=80
 autocmd FileType vimwiki setlocal tw=80
 autocmd FileType vim setlocal foldmethod=marker
 autocmd BufWritePre *.c :Autoformat
+let R_in_buffer=1
+let R_assign=0
 
 " }}}
 " misc {{{
@@ -155,10 +134,14 @@ autocmd BufWritePre *.java execute ':Autoformat'
 " visual {{{
 
 syntax on
-set termguicolors
-colorscheme Atelier_CaveDark
+colorscheme default
 
-hi Normal guibg=NONE ctermbg=NONE
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+" hi Normal guibg=NONE ctermbg=NONE
 " highlight clear Conceal
 
 let g:NERDSpaceDelims=1
