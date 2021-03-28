@@ -68,7 +68,10 @@
 
 # open terminal
 # cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
-cmd - return : open -n /Applications/Alacritty.app
+# cmd - return : open -n /Applications/Alacritty.app
+# cmd - return : osascript ~/coding/apple_scripts/openterminal.scpt
+cmd - return : open /Applications/iTerm.app
+f13 : zsh blankgtr
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -83,10 +86,10 @@ shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
 
 # move window
-shift + cmd - h : yabai -m window --warp west
-shift + cmd - j : yabai -m window --warp south
-shift + cmd - k : yabai -m window --warp north
-shift + cmd - l : yabai -m window --warp east
+# shift + cmd - h : yabai -m window --warp west
+# shift + cmd - j : yabai -m window --warp south
+# shift + cmd - k : yabai -m window --warp north
+# shift + cmd - l : yabai -m window --warp east
 
 # balance size of windows
 shift + alt - 0 : yabai -m space --balance
@@ -223,9 +226,9 @@ alt - o : yabai -m window --toggle topmost
 
 # toggle sticky(+float), topmost, border and picture-in-picture
 # alt - p : yabai -m window --toggle sticky;\
-          # yabai -m window --toggle topmost;\
-          # yabai -m window --toggle border;\
-          # yabai -m window --toggle pip
+		  # yabai -m window --toggle topmost;\
+		  # yabai -m window --toggle border;\
+		  # yabai -m window --toggle pip
 
 # change layout of desktop
 # ctrl + alt - a : yabai -m space --layout bsp

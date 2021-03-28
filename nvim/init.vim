@@ -5,13 +5,13 @@ Plug 'machakann/vim-colorscheme-kemonofriends'
 Plug 'chriskempson/base16-vim'
 " Plug 'pbrisbin/vim-colors-off'
 " Plug 'atelierbram/Base2Tone-vim'
-Plug 'atelierbram/vim-colors_atelier-schemes'
-Plug 'cideM/yui'
-Plug 'noahfrederick/vim-hemisu'
-Plug 'noahfrederick/vim-noctu'
+" Plug 'atelierbram/vim-colors_atelier-schemes'
+" Plug 'cideM/yui'
+" Plug 'noahfrederick/vim-hemisu'
+" Plug 'noahfrederick/vim-noctu'
 " Plug 'camgunz/amber'
-Plug 'RosyGraph/amber'
-Plug 'xolox/vim-colorscheme-switcher'
+" Plug 'RosyGraph/amber'
+" Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 Plug 'neovim/nvim-lspconfig'
 Plug 'honza/vim-snippets'
@@ -31,11 +31,15 @@ Plug 'lervag/vimtex'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
-Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'psf/black'
 Plug 'eagletmt/neco-ghc'
 Plug 'jaspervdj/stylish-haskell'
 Plug 'Chiel92/vim-autoformat'
 Plug 'vimwiki/vimwiki'
+Plug 'whonore/Coqtail'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 " }}}
@@ -102,14 +106,32 @@ let g:vimtex_quickfix_ignore_filters = [
           \]
 
 " }}}
+" go {{{
+autocmd FileType go nmap <Leader>gt <Plug>(go-test)
+autocmd FileType go nmap <Leader>gi <Plug>(go-info)
+autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+autocmd FileType go nmap <Leader>gr <Plug>(go-run)
+autocmd FileType go nmap <Leader>gb <Plug>(go-build)
+
+let g:go_fmt_command = "goimports"
+" }}}
 " r markdown {{{
+
 autocmd BufWritePost *.rmd :call RMakeRmd("default")
+let R_rconsole_width = 0
+let R_rconsole_height = 15
+
 " }}}
 " haskell {{{
 
 autocmd BufWritePre *.hs :Autoformat
 autocmd FileType haskell let b:autoformat_autoindent = 0
 autocmd Filetype haskell setlocal expandtab
+
+" }}}
+" scheme {{{
+
+autocmd FileType scheme nnoremap <silent> <buffer> <leader>r :!scheme --quiet < % <CR>
 
 " }}}
 " misc filetypes {{{
@@ -123,6 +145,11 @@ autocmd BufWritePre *.c :Autoformat
 let R_in_buffer=1
 let R_assign=0
 
+function! g:CoqtailHighlight()
+	hi def CoqtailChecked cterm=reverse	ctermfg=fg
+	hi def CoqtailSent ctermbg=62
+endfunction
+
 " }}}
 " misc {{{
 
@@ -134,7 +161,6 @@ autocmd BufWritePre *.java execute ':Autoformat'
 " visual {{{
 
 syntax on
-colorscheme default
 
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
@@ -162,6 +188,7 @@ set splitright
 set clipboard=unnamed
 set ignorecase smartcase
 set cursorline
+set linebreak
 set completeopt-=preview
 :tnoremap <Esc> <C-\><C-n>
 

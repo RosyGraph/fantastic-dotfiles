@@ -167,17 +167,17 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  use_thin_strokes: false
+  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 # draw_bold_text_with_bright_colors: true
 
 # Colors
-colors:
+# colors:
   # Default colors
-  primary:
-   background: '#1d1f21'
-   foreground: '#F8B195'
+  # primary:
+   # background: '#000000'
+   # foreground: '#ff8700'
 
     # Bright and dim foreground colors
     #
@@ -191,9 +191,9 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are
   # unset, the cursor color will be the inverse of the cell color.
-  cursor:
-   text: '#000000'
-   cursor: '#f67280'
+  # cursor:
+   # text: '#000000'
+   # cursor: '#ff8700'
 
   # Vi mode cursor colors
   #
@@ -213,15 +213,15 @@ colors:
    # background: '#b6d6fd'
 
   # Normal colors
-  normal:
-   white:   '#F1F1F1'
-   red:     '#C30771'
-   green:   '#10A778'
-   yellow:  '#A89C14'
-   blue:    '#20BBFC'
-   magenta: '#523C79'
-   cyan:    '#20A5BA'
-   black:   '#424242'
+  # normal:
+   # white:   '#F1F1F1'
+   # red:     '#f67280'
+   # green:   '#10A778'
+   # yellow:  '#c8a951'
+   # blue:    '#355c7d'
+   # magenta: '#c06c84'
+   # cyan:    '#00FFFF'
+   # black:   '#424242'
 
   # Bright colors
   # bright:
