@@ -40,6 +40,8 @@ Plug 'whonore/Coqtail'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'soywod/himalaya', {'rtp': 'vim'}
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 " }}}
@@ -156,6 +158,7 @@ endfunction
 set rtp+=/usr/local/opt/fzf
 nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 autocmd BufWritePre *.java execute ':Autoformat'
+let g:ruby_host_prog = '/usr/local/lib/ruby/gems/3.0.0/bin/neovim-ruby-host'
 
 " }}}
 " visual {{{
